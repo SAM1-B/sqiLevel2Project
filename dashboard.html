@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard | 3D Estate</title>
+
+    <style>
+        /* ===============LOADER STYLES=================== */
+        #loaderOne {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20000;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: opacity 0.6s ease;
+        }
+
+        #loaderOne.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 45px;
+            aspect-ratio: 1;
+            --c: no-repeat linear-gradient(#550303 0 0);
+            background:
+                var(--c) 0%   50%,
+                var(--c) 50%  50%,
+                var(--c) 100% 50%;
+            background-size: 20% 100%;
+            animation: l1 1s infinite linear;
+        }
+
+        @keyframes l1 {
+            0%   { background-size: 20% 100%, 20% 100%, 20% 100%; }
+            33%  { background-size: 20% 10%,  20% 100%, 20% 100%; }
+            50%  { background-size: 20% 100%, 20% 10%,  20% 100%; }
+            66%  { background-size: 20% 100%, 20% 100%, 20% 10%;  }
+            100% { background-size: 20% 100%, 20% 100%, 20% 100%; }
+        }
+    </style>
+</head>
+<body class="dashboard-page">
+
+    <!-- ===============LOADER=================== -->
+    <div id="loaderOne">
+        <div class="loader"></div>
+    </div>
+    <!-- ================================== -->
+
+    <div class="dashboard-shell">
+        <div class="dashboard-hero">
+            <div class="dashboard-hero__pulse"></div>
+            <div class="dashboard-hero__info">
+                <span class="eyebrow">Your 3D Estate command center</span>
+                <h1>Welcome back, <span id="userName">.....</span></h1>
+                <p>Track saved homes, active tours, and new recommendations — all with cinematic motion and immersive styling.</p>
+            </div>
+            <div class="dashboard-hero__profile">
+                <div class="profile-badge">
+                    <span>VIP MEMBER</span>
+                </div>
+                <div class="profile-chip">
+                    <div class="avatar">🏠</div>
+                    <div>
+                        <!-- <p>Live score</p> -->
+                        <!-- <strong id="profileScore">94</strong> -->
+                    </div>
+                </div>
+                <button id="logoutBtn" class="btn btn-outline-glow border-3 shadow" style="margin-top: 16px;">Logout</button>
+            </div>
+        </div>
+
+        <section class="dashboard-grid">
+            <article class="dashboard-card activity-card">
+                <div class="card-topline">Recent activity</div>
+                <ul class="activity-list">
+                    <li><span class="activity-bullet"></span> New 3D tour available for a sunset penthouse.</li>
+                    <li><span class="activity-bullet"></span> Your request for an interior design consultation was approved.</li>
+                    <li><span class="activity-bullet"></span> Price alert: 3 homes under ₦45M in your preferred area.</li>
+                </ul>
+            </article>
+
+            <article class="dashboard-card favorites-card">
+                <div class="card-topline">Saved spaces</div>
+                <div class="favorite-grid">
+                    <div class="favorite-item">
+                        <span class="favorite-tag">Loft</span>
+                        <strong>Riverside Residence</strong>
+                        <small>Ajah, Lagos</small>
+                    </div>
+                    <div class="favorite-item">
+                        <span class="favorite-tag">Villa</span>
+                        <strong>Skyline Manor</strong>
+                        <small>Victoria Island</small>
+                    </div>
+                    <div class="favorite-item">
+                        <span class="favorite-tag">Studio</span>
+                        <strong>Urban Nook</strong>
+                        <small>Ikeja</small>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="dashboard-waveboard">
+            <div class="wave-card">
+                <h3>Launch your next 3D session</h3>
+                <p>Open a guided walkthrough, match with a design expert, or request VIP property previews in seconds.</p>
+                <button class="btn btn-large" style="color: white; background-color: rgb(114, 9, 32);">Explore 3D sessions</button>
+            </div>
+        </section>
+
+        <section class="property-gallery">
+            <div class="gallery-head">
+                <span class="eyebrow">Property spotlight</span>
+                <h2>Beautiful homes with live 3D previews</h2>
+            </div>
+            <div class="gallery-grid">
+                <article class="property-card">
+                    <div class="property-image">
+                        <img src="img/unsplash_OtXADkUh3-I.png" alt="Riverside Penthouse">
+                    </div>
+                    <div class="property-body">
+                        <div class="property-label">Riverside penthouse</div>
+                        <h3>Victoria Island retreat</h3>
+                        <p>4 beds · 3 baths · 2,480 sqft</p>
+                        <div class="property-meta">
+                            <span>₦42M</span>
+                            <button class="btn property-btn">View 3D tour</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="property-card">
+                    <div class="property-image">
+                        <img src="img/unsplash__HqHX3LBN18.png" alt="Sunset Villa">
+                    </div>
+                    <div class="property-body">
+                        <div class="property-label">Sunset villa</div>
+                        <h3>Ocean-view hidden gem</h3>
+                        <p>5 beds · 4 baths · 3,150 sqft</p>
+                        <div class="property-meta">
+                            <span>₦58M</span>
+                            <button class="btn property-btn">Save to board</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="property-card">
+                    <div class="property-image">
+                        <img src="img/Image.png" alt="Urban Loft">
+                    </div>
+                    <div class="property-body">
+                        <div class="property-label">Urban loft</div>
+                        <h3>Central business district</h3>
+                        <p>3 beds · 2 baths · 1,780 sqft</p>
+                        <div class="property-meta">
+                            <span>₦34M</span>
+                            <button class="btn property-btn">Start walkthrough</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <div class="dashboard-viewport"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+        import {
+            getAuth,
+            signInWithPopup,
+            GoogleAuthProvider,
+            onAuthStateChanged,
+            GithubAuthProvider,
+            createUserWithEmailAndPassword,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBYg0-M0-Y80uS7EfAKEDsyyW2SRNZk8pE",
+            authDomain: "sqiprojectlevel2.firebaseapp.com",
+            projectId: "sqiprojectlevel2",
+            storageBucket: "sqiprojectlevel2.firebasestorage.app",
+            messagingSenderId: "571059128833",
+            appId: "1:571059128833:web:7692070cd14cf0553d4e00",
+            measurementId: "G-LY9MRPQR70"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const provider = new GoogleAuthProvider();
+        const auth = getAuth();
+        const githubProvider = new GithubAuthProvider();
+
+        function animateCounters() {
+            document.querySelectorAll('.counter').forEach((element) => {
+                const target = +element.dataset.target;
+                let current = 0;
+                const step = Math.max(1, Math.floor(target / 80));
+                const interval = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(interval);
+                    } else {
+                        element.textContent = current;
+                    }
+                }, 20);
+            });
+        }
+
+        // =======================
+        // AUTH STATE
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const displayName = user.displayName;
+                const userNameEl = document.getElementById('userName');
+                if (userNameEl && displayName) {
+                    userNameEl.innerHTML = displayName.toUpperCase();
+                }
+                console.log(displayName);
+            } else {
+                window.location.href = "createAccount.html";
+            }
+        });
+
+        // =======================
+        // LOGOUT
+        const logoutBtnMain = document.getElementById('logoutBtn');
+        if (logoutBtnMain) {
+            logoutBtnMain.addEventListener('click', () => {
+                signOut(auth)
+                    .then(() => {
+                        window.location.href = 'index.html';
+                    })
+                    .catch((error) => {
+                        console.error('Logout failed', error);
+                        alert('Logout failed, please try again.');
+                    });
+            });
+        }
+
+        // =======================
+        // MR LOADER — shows for 4s with blurred cover, then fades out
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loaderOne = document.getElementById('loaderOne');
+                if (loaderOne) {
+                    loaderOne.classList.add('fade-out');
+                    setTimeout(() => {
+                        loaderOne.style.display = 'none';
+                    }, 600); // matches CSS transition duration
+                }
+            }, 1200); // loader visible for 4 seconds
+        });
+    </script>
+</body>
+</html>
